@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Transporters</title>
+</head>
+<body>
+	{% for transporter in transporters %}
+	  <a href="{{ transporter.get_absolute_url }}">{{ transporter.name }}</a>
+	{% endfor %}
+
+	<p>{{ transporter.gst_no }}</p>
+</body>
+</html>
