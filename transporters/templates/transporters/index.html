@@ -7,21 +7,10 @@
 </head>
 <body>
 	{% for transporter in transporters %}
-	  <a href="#" id="{{ transporter.id }}">{{ transporter.name }}</a>		  
+	  <p><a href="{% url 'trans:detail' transporter.id %}">{{ transporter.name }}</a></p>
 	{% endfor %}
 
 	<p>{{ transporter.gst_no }}</p>
-	<p id="gst_no"></p>
-
-	<script>
-		var trans = document.getElementById("{{ transporter.id }}")
-			gstNo = document.getElementById("gst_no");		
-
-		trans.addEventListener("click", () => {							
-			gstNo.innerHTML = "{{ transporter.name }}";
-			
-		})
-	</script>
-	
+	<p id="gst_no"></p>	
 </body>
 </html>
