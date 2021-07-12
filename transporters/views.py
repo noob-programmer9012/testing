@@ -1,12 +1,15 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from .models import TrasnporterDetails
-from django.http import HttpResponse
 
 def trans_list(request, id=None):	
 	transporters = TrasnporterDetails.objects.all()
 	try:
 		transporter = TrasnporterDetails.objects.get(pk=id)
-		return render(request, 'transporters/index.html', {'transporters': transporters, 'transporter': transporter})
+		context = {
+			'transporters': transporters,
+			'transporter': transporter,
+		}
+		return render(request, 'transporters/index.html', context)
 	except:		
 		context = {
 			'transporters': transporters,			
